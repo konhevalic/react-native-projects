@@ -1,20 +1,45 @@
+
+import { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
+import { createStackNavigator } from '@react-navigation/stack';
+import { NavigationContainer } from '@react-navigation/native';
+
+import { ContainerContext } from './src/contextos';
+
+import Home from './src/home';
+import CalculoMedias from './src/media';
+import ListaAlunos from './src/listaAlunos';
+import Contador from './src/contador';
+
+const Stack = createStackNavigator()
+
+
 
 export default function App() {
+
+  const [showModal, setShowModal] = useState(false)
+  const [alunos, setAlunos] = useState([]);
+
+
+  const values = {
+    showModal,
+    setShowModal,
+    alunos,
+    setAlunos
+  }
+
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <ContainerContext.Provider value={values}>
+      <NavigationContainer>
+        <Stack.Navigator>
+          <Stack.Screen name="Home" component={Home} />
+          <Stack.Screen name="Calculo Medias" component={CalculoMedias} />
+          <Stack.Screen name="Lista de Alunos" component={ListaAlunos} />
+          <Stack.Screen name="Contador" component={Contador} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </ContainerContext.Provider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
