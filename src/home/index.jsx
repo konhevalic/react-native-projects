@@ -1,4 +1,4 @@
-import { View, StyleSheet, Button, FlatList } from 'react-native'
+import { View, StyleSheet, Button, FlatList, Flatbu } from 'react-native'
 import uuid from 'react-native-uuid';
 
 import globalStyles from '../../globalStyles';
@@ -12,7 +12,7 @@ const Home = ({navigation}) => {
         {id: 1, screen: 'Contador'},
         {id: 2, screen: 'Calculo Medias'},
         {id: 3, screen: 'Lista de Alunos'},
-        {id: 4, screen: 'Empty'},
+        {id: 4, screen: 'Lista de Imagens'},
         {id: 5, screen: 'Empty'},
         {id: 6, screen: 'Empty'},
         {id: 7, screen: 'Empty'},
@@ -32,8 +32,9 @@ const Home = ({navigation}) => {
                             <Button
                                 title={item.screen}
                                 onPress={() => navigation.navigate(item.screen)}
-                                color={item.screen === "Empty" ? "gray": "blue"}
+                                color={item.screen === "Empty" ? "gray": "#487aa1"}
                             />
+                            
                         </View>
                         
                     )
