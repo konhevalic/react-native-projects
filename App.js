@@ -15,8 +15,6 @@ import ListaImagens from './src/listaImagens';
 
 const Stack = createStackNavigator()
 
-
-
 export default function App() {
 
   const [showModal, setShowModal] = useState(false)
